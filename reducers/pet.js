@@ -4,14 +4,10 @@ const initialState = {
     hungry: true,
 }
 
-const petCat = (cat) =>{
-    console.log(cat.target().value)
-}
-
 export default function pet(state = initialState, action){
     switch(action.type){
         case 'PET_CAT':
-            return{...state}
+            return{...state, pet: state.pet + 1}
         default:
             return state;
     }

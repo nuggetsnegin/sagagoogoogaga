@@ -1,14 +1,17 @@
-import  { connect } from 'react-redux';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { pet } from '../actions/pet'
 export default function Canvas(){
 
     const petNum = useSelector(state => state.pet.pet)
+    const dispatch = useDispatch()
+
     console.log(petNum)
-    
+
+
     return(
         <div className="container">
-            <h2><button>(ﾉΦωΦ)ﾉ</button></h2>
+            <span>Pets: {petNum}</span>
+            <h2><button onClick={() => dispatch(pet)}>(ﾉΦωΦ)ﾉ</button></h2>
             <style jsx>{`
                 button{
                     font-size: 10rem;
