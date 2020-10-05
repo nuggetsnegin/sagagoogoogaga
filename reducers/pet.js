@@ -4,6 +4,12 @@ const initialState = {
     hungry: true,
 }
 
+// function* generator(i){
+//     yield i + 1;
+// }
+
+// const gen = generator(10);
+
 export default function pet(state = initialState, action){
     switch(action.type){
         case 'PET_CAT':

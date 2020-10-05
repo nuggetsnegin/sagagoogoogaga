@@ -1,13 +1,19 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
+// import mySaga from '../sagas/saga'
 import pet from '../reducers/pet'
 import Canvas from '../components/Canvas'
 
 export default function Home() {
 
-  const store = createStore(combineReducers({ pet }))
+  // const sagaMiddleware = createSagaMiddleware()
+  //const store = createStore(combineReducers(pet, applyMiddleware(sagaMiddleware)))
+  const store = createStore(combineReducers({pet}))
+
+  // sagaMiddleware.run(mySaga)
   
   return (
     <Provider store={store}>
