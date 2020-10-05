@@ -1,14 +1,14 @@
 import  { connect } from 'react-redux';
+import { useSelector } from 'react-redux'
 import { pet } from '../actions/pet'
-function Canvas(){
+export default function Canvas(){
 
-    const handleClick = (e) =>{
-        console.log(e.target.value)
-    }
-
+    const petNum = useSelector(state => state.pet.pet)
+    console.log(petNum)
+    
     return(
         <div className="container">
-            <h2><button onClick={handleClick}>(ﾉΦωΦ)ﾉ</button></h2>
+            <h2><button>(ﾉΦωΦ)ﾉ</button></h2>
             <style jsx>{`
                 button{
                     font-size: 10rem;
@@ -24,14 +24,12 @@ function Canvas(){
     )
 }
 
-const mapStateToProps = (state) =>({
-    pet: state.pet.pet,
-})
+// const mapStateToProps = (state) =>({
+//     pet: state.pet.pet,
+// })
 
-const mapDispatchToProps = (dispatch) =>{
-    return {
-        petCat:  (cat) => dispatch(pet(cat))
-    }
-}
-
-export default connect(mapStateToProps)(mapDispatchToProps)(Canvas);
+// const mapDispatchToProps = (dispatch) =>{
+//     return {
+//         petCat: (cat) => dispatch(pet(cat))
+//     }
+// }
