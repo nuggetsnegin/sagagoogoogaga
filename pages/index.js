@@ -3,28 +3,26 @@ import styles from '../styles/Home.module.css'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
-// import mySaga from '../sagas/saga'
-import pet from '../reducers/pet'
+import { rootSaga } from '../sagas/saga'
+import reducer from '../reducers/reducers'
 import Canvas from '../components/Canvas'
 
 export default function Home() {
 
-  // const sagaMiddleware = createSagaMiddleware()
-  //const store = createStore(combineReducers(pet, applyMiddleware(sagaMiddleware)))
-  const store = createStore(combineReducers({pet}))
+  const sagaMiddleware = createSagaMiddleware()
 
-  // sagaMiddleware.run(mySaga)
+  const store = createStore(combineReducers(reducer, applyMiddleware(sagaMiddleware)))
+  sagaMiddleware.run(rootSaga)
   
   return (
     <Provider store={store}>
       <div className={styles.container}>
         <Head>
-          <title>Pet Cat</title>
+          <title>Tamacatchi</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main className={styles.main}>
-          <h1>Pet Cat</h1>
           <Canvas/>
         </main>
       </div>

@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { pet } from '../actions/pet'
+import { actions } from '../actions/actions'
+import Status from './Status'
 export default function Canvas(){
 
-    const petNum = useSelector(state => state.pet.pet)
+    const play = useSelector(state => state.actions.play)
     const dispatch = useDispatch()
 
     console.log(petNum)
@@ -10,8 +11,8 @@ export default function Canvas(){
 
     return(
         <div className="container">
-            <span>Pets: {petNum}</span>
-            <h2><button onClick={() => dispatch(pet)}>(ﾉΦωΦ)ﾉ</button></h2>
+            <Status/>
+            <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
             <style jsx>{`
                 button{
                     font-size: 10rem;
