@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
-import { rootSaga } from '../sagas/saga'
+import rootSaga from '../sagas/saga'
 import reducer from '../reducers/reducers'
 import Canvas from '../components/Canvas'
 
@@ -11,7 +11,11 @@ export default function Home() {
 
   const sagaMiddleware = createSagaMiddleware()
 
-  const store = createStore(combineReducers(reducer, applyMiddleware(sagaMiddleware)))
+  const store = createStore(
+    reducer,
+    applyMiddleware(sagaMiddleware)
+  )
+
   sagaMiddleware.run(rootSaga)
   
   return (

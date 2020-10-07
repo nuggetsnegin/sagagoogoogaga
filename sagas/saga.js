@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, all, delay } from 'redux-saga/effects'
 
 export function* incrementHunger(){
     yield delay(1000)
@@ -6,7 +6,7 @@ export function* incrementHunger(){
 }
 
 export function* decreaseHappiness(){
-    yield delay(1000)
+    yield delay(2000)
     yield put({type: 'DECREASE_HAPPINESS'})
 }
 
@@ -14,6 +14,6 @@ export function* decreaseHappiness(){
 export default function* rootSaga() {
     yield all([
       call(incrementHunger),
-      call(decrementHappiness),
+      call(decreaseHappiness),
     ])
   }

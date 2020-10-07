@@ -1,18 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { actions } from '../actions/actions'
+import { play } from '../actions/actions'
 import Status from './Status'
 export default function Canvas(){
 
-    const play = useSelector(state => state.actions.play)
+    const playTama = useSelector(state => state.play)
     const dispatch = useDispatch()
 
-    console.log(petNum)
+    console.log(playTama)
 
 
     return(
         <div className="container">
             <Status/>
-            <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
+            <h2><button onClick={() => dispatch(playTama)}>(ﾉΦωΦ)ﾉ</button></h2>
             <style jsx>{`
                 button{
                     font-size: 10rem;
