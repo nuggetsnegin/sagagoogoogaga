@@ -1,17 +1,22 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { pet } from '../actions/pet'
+import { getTamaHappiness, getTamaHunger, getTamaCleanliness } from '../selectors'
+import { play, feed, clean } from '../actions/actions'
+import Status from './Status'
+
 export default function Canvas(){
 
-    const petNum = useSelector(state => state.pet.pet)
     const dispatch = useDispatch()
 
-    console.log(petNum)
-
+    const tamaHappiness = useSelector(getTamaHappiness)
+    const tamaHunger = useSelector(getTamaHunger)
+    const tamaCleanliness = useSelector(getTamaCleanliness)
 
     return(
         <div className="container">
-            <span>Pets: {petNum}</span>
-            <h2><button onClick={() => dispatch(pet)}>(ﾉΦωΦ)ﾉ</button></h2>
+            <Status happiness={tamaHappiness} hunger={tamaHunger} clean={tamaCleanliness }/>
+            <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
+            <button onClick={() => dispatch(feed)}>🍖</button>
+            <button onClick={() => dispatch(clean)}>🧻</button>
             <style jsx>{`
                 button{
                     font-size: 10rem;
