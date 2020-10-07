@@ -1,23 +1,15 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { getTamaHappiness, getTamaHunger, getTamaCleanliness } from '../selectors'
 import { play } from '../actions/actions'
-import { decreaseCleanliness, decreaseHappiness, incrementHunger } from '../sagas/saga'
 import Status from './Status'
+
 export default function Canvas(){
 
-    //when to use this versus mapstatetoprops?
-    const tamaHappiness = useSelector(state => state.happiness)
-    const tamaHunger = useSelector(state => state.hunger)
-    const tamaCleanliness = useSelector(state => state.clean)
     const dispatch = useDispatch()
 
-    //saga only runs once - is this the right way of calling it?
-
-
-    for(let i = 0; i < 200; i++){
-        incrementHunger()
-        decreaseHappiness()
-        decreaseCleanliness()
-    }
+    const tamaHappiness = useSelector(getTamaHappiness)
+    const tamaHunger = useSelector(getTamaHunger)
+    const tamaCleanliness = useSelector(getTamaCleanliness)
 
     return(
         <div className="container">

@@ -11,8 +11,15 @@ export default function Home() {
 
   const sagaMiddleware = createSagaMiddleware()
 
-  //Q: store in index/main file?
-  //Q: when to use combineReducer?
+  //Q: store in index/main file? SIMON SAYS: NO, index is a component
+  //initialize it outside of the react component
+  //Redux is state management independent of react
+  //useRef if you wanna store it on a component (property on a class)
+  //poke head into molly repo/tech test for how it's done
+
+
+  //Q: when to use combineReducer? - if you have one reducer you won't need
+  //redux store is an obj (items, characters) ~ seperate reducers/different state/types of info
   
   const store = createStore(
     reducer,
