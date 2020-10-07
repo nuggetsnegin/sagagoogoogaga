@@ -19,11 +19,11 @@ import { getTamaHappiness, getTamaHunger, getTamaCleanliness } from '../selector
 export function* incrementHunger(){
   while(true){
     const hungi = yield select(getTamaHunger)
-    if(hungi < 5){
+    if(hungi < 100){
       //put dispatch, disput
       yield put({type: 'INCREASE_HUNGER'})
     }
-    yield delay(1000)
+    yield delay(8000)
   }
 }
 
@@ -33,7 +33,7 @@ export function* decreaseHappiness(){
     if(happi > 5){
       yield put({type: 'DECREASE_HAPPINESS'})
     }
-    yield delay(2000)
+    yield delay(7000)
   }
 }
 

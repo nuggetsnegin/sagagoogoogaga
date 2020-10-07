@@ -2,7 +2,7 @@ export default function Status({ happiness, hunger, clean }){
 
     return(
         <div>
-            <span>Happiness:{ happiness}</span>
+            <span>Happiness: { happiness}</span>
             <span>Hunger: {hunger}</span>
             <span>Cleanliness: {clean}</span>
 
