@@ -3,15 +3,18 @@ import { play } from '../actions/actions'
 import Status from './Status'
 export default function Canvas(){
 
-    const playTama = useSelector(state => state.happiness)
+    //when to use this versus mapstatetoprops?
+    const tamaHappiness = useSelector(state => state.happiness)
+    const tamaHunger = useSelector(state => state.hunger)
+    const tamaCleanliness = useSelector(state => state.clean)
     const dispatch = useDispatch()
 
-    console.log(playTama)
+    console.log(tamaHappiness)
 
 
     return(
         <div className="container">
-            <Status/>
+            <Status happiness={tamaHappiness} hunger={tamaHunger} clean={tamaCleanliness }/>
             <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
             <style jsx>{`
                 button{
