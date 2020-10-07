@@ -47,7 +47,7 @@ export function* decreaseCleanliness(){
   }
 }
 
-//single ppont of entry for all sagas
+//single point of entry for all sagas
 //yield all will run all the effects, but we want to make they'll rerun
 //yield all will not know whether to restart them
 export default function* rootSaga() {

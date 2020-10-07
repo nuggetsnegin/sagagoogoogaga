@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { getTamaHappiness, getTamaHunger, getTamaCleanliness } from '../selectors'
-import { play } from '../actions/actions'
+import { play, feed, clean } from '../actions/actions'
 import Status from './Status'
 
 export default function Canvas(){
@@ -15,6 +15,8 @@ export default function Canvas(){
         <div className="container">
             <Status happiness={tamaHappiness} hunger={tamaHunger} clean={tamaCleanliness }/>
             <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
+            <button onClick={() => dispatch(feed)}>🍖</button>
+            <button onClick={() => dispatch(clean)}>🧻</button>
             <style jsx>{`
                 button{
                     font-size: 10rem;

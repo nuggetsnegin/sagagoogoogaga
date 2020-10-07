@@ -21,17 +21,17 @@ export default function tama(state = initialState, action){
             //return{...state, peepeepoopoo: {...state.peepeepoopoo, pee: {...state.peepeepoopoo.pee, poo: false}}}
             //deep partial, partial slice of your initial state at an arbritary level of nesting
             //return u({peepeepoopoo: {pee: {poo: false}}}, state)
-            return u({happiness: state.happiness+1}, state)
+            return u({happiness: state.happiness +1}, state)
         case 'FEED_TAMA':
-            return{...state, hunger: state.hunger -1}
+            return u({hunger: state.hunger -5}, state)
         case 'CLEAN_TAMA':
-            return{...state, clean: state.clean +1}
+            return u({clean: state.clean +10}, state)
         case 'INCREASE_HUNGER':
-            return{...state, hunger: state.hunger +1}
+            return u({hunger: state.hunger +1}, state)
         case 'DECREASE_HAPPINESS':
-            return{...state, happiness: state.happiness -1}
+            return u({happiness: state.happiness -1}, state)
         case 'DECREASE_CLEANLINESS':
-            return{...state, clean: state.clean -1}
+            return u({state, clean: state.clean -1}, state)
         default:
             return state;
     }
