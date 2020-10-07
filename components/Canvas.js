@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { play } from '../actions/actions'
+import { decreaseCleanliness, decreaseHappiness, incrementHunger } from '../sagas/saga'
 import Status from './Status'
 export default function Canvas(){
 
@@ -9,8 +10,14 @@ export default function Canvas(){
     const tamaCleanliness = useSelector(state => state.clean)
     const dispatch = useDispatch()
 
-    console.log(tamaHappiness)
+    //saga only runs once - is this the right way of calling it?
 
+
+    for(let i = 0; i < 200; i++){
+        incrementHunger()
+        decreaseHappiness()
+        decreaseCleanliness()
+    }
 
     return(
         <div className="container">
