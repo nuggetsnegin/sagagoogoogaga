@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import { Provider } from 'react-redux'
 import rootSaga from '../sagas/saga'
@@ -11,6 +11,9 @@ export default function Home() {
 
   const sagaMiddleware = createSagaMiddleware()
 
+  //Q: store in index/main file?
+  //Q: when to use combineReducer?
+  
   const store = createStore(
     reducer,
     applyMiddleware(sagaMiddleware)

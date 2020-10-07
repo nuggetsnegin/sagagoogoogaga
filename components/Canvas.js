@@ -3,7 +3,7 @@ import { play } from '../actions/actions'
 import Status from './Status'
 export default function Canvas(){
 
-    const playTama = useSelector(state => state.play)
+    const playTama = useSelector(state => state.happiness)
     const dispatch = useDispatch()
 
     console.log(playTama)
@@ -12,7 +12,7 @@ export default function Canvas(){
     return(
         <div className="container">
             <Status/>
-            <h2><button onClick={() => dispatch(playTama)}>(ﾉΦωΦ)ﾉ</button></h2>
+            <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
             <style jsx>{`
                 button{
                     font-size: 10rem;
