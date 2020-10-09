@@ -6,10 +6,6 @@ const initialState = {
     clean: 0,
 }
 
-const tamaCrying = () =>{
-    console.log('i am sad')
-}
-
 export default function tama(state = initialState, action){
     switch(action.type){
         case 'PLAY_TAMA':

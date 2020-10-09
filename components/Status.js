@@ -5,7 +5,7 @@ export default function Status({ happiness, hunger, clean }){
             <span>Happiness: { happiness}</span>
             <span>Hunger: {hunger}</span>
             <span>Cleanliness: {clean}</span>
-
+        
             <style jsx>{`
                 .status-bar{
                     display: flex;
