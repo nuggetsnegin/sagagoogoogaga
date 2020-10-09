@@ -23,14 +23,17 @@ export function* incrementHunger(){
       //put dispatch, disput
       yield put({type: 'INCREASE_HUNGER'})
     }
-    yield delay(8000)
+    if(hungi >= 100){
+      yield put({type: 'TAMA_CRYING'})
+    }
+    yield delay(2000)
   }
 }
 
 export function* decreaseHappiness(){
   while(true){
     const happi = yield select(getTamaHappiness)
-    if(happi > 5){
+    if(happi > 0){
       yield put({type: 'DECREASE_HAPPINESS'})
     }
     yield delay(7000)
@@ -47,9 +50,6 @@ export function* decreaseCleanliness(){
   }
 }
 
-//single point of entry for all sagas
-//yield all will run all the effects, but we want to make they'll rerun
-//yield all will not know whether to restart them
 export default function* rootSaga() {
     yield all([
       call(incrementHunger),

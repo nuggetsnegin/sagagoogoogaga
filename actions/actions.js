@@ -21,3 +21,7 @@ export const increaseHunger = {
 export const decreaseCleanliness = {
     type: 'DECREASE_CLEANLINESS',
 }
+
+export const tamaCry = {
+    type: 'TAMA_CRYING'
+}
