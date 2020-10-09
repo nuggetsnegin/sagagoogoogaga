@@ -6,6 +6,10 @@ const initialState = {
     clean: 0,
 }
 
+const tamaCrying = () =>{
+    console.log('i am sad')
+}
+
 export default function tama(state = initialState, action){
     switch(action.type){
         case 'PLAY_TAMA':
@@ -19,7 +23,10 @@ export default function tama(state = initialState, action){
         case 'DECREASE_HAPPINESS':
             return u({happiness: state.happiness -1}, state)
         case 'DECREASE_CLEANLINESS':
-            return u({state, clean: state.clean -1}, state)
+            return u({clean: state.clean -1}, state)
+        case 'TAMA_CRYING':
+            const crying = tamaCrying()
+            return {...state, crying}
         default:
             return state;
     }
