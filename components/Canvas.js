@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { getTamaHappiness, getTamaHunger, getTamaCleanliness } from '../selectors'
+import { getTamaHappiness, getTamaHunger, getTamaCleanliness, getTamaCryingisHungry } from '../selectors'
 import { play, feed, clean, tamaCry } from '../actions/actions'
 import Status from './Status'
 
@@ -10,11 +10,12 @@ export default function Canvas(){
     const tamaHappiness = useSelector(getTamaHappiness)
     const tamaHunger = useSelector(getTamaHunger)
     const tamaCleanliness = useSelector(getTamaCleanliness)
+    const tamaCryValue = useSelector(getTamaCryingisHungry)
 
     return(
         <div className="container">
             <Status happiness={tamaHappiness} hunger={tamaHunger} clean={tamaCleanliness} />
-            {tamaCry ? <span className="cry">💧</span> : null }
+            {tamaCryValue ? <span className="cry">💧</span> : null }
             <h2><button onClick={() => dispatch(play)}>(ﾉΦωΦ)ﾉ</button></h2>
             <button onClick={() => dispatch(feed)}>🍖</button>
             <button onClick={() => dispatch(clean)}>🧻</button>

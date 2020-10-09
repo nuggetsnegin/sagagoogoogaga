@@ -20,9 +20,6 @@ export default function tama(state = initialState, action){
             return u({happiness: state.happiness -1}, state)
         case 'DECREASE_CLEANLINESS':
             return u({clean: state.clean -1}, state)
-        case 'TAMA_CRYING':
-            const crying = tamaCrying()
-            return {...state, crying}
         default:
             return state;
     }
